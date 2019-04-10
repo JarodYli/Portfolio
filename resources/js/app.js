@@ -24,6 +24,13 @@ window.Vue = require('vue');
 
 Vue.component('Clock', require('./components/Clock.vue') .default);
 
+Vue.component('testtac', require('./components/testtac.vue') .default);
+
+Vue.component('tile', require('./components/tile.vue') .default);
+
+Vue.component('testing', require('./components/testing.vue') .default);
+
+
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -31,5 +38,9 @@ Vue.component('Clock', require('./components/Clock.vue') .default);
  */
 
 const app = new Vue({
-    el: '#app'
+    el: '#app',
+    components: {
+        
+
+    }
 });

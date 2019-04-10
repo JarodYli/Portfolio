@@ -3,7 +3,16 @@
 
 @section('content')
 
-<h1>Tic Tac Toe</h1>
+
+<div id="app">
+    <div class="container">
+        <TestTac></TestTac>
+    </div>
+</div>
+
+
+
+
 Coming Soon
 
 @endsection

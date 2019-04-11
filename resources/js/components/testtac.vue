@@ -25,7 +25,8 @@
     </div>
 
     <div>
-      <button>Play the game</button>
+      <button @click="whoGoes">Play the game</button>
+      <!-- <button @click="reset">Reset</button> -->
     </div>
   </div>
 </template>
@@ -35,6 +36,12 @@
 import tile from "./tile"
 
 export default {
+
+  mounted() {
+
+    this.drawBoard();
+
+  },
 
   data() {
     return {
@@ -49,26 +56,32 @@ export default {
           {id:2, value:0},
           {id:3, value:0}
       ],
-      image: '/images/Os.png',
 
-      turn:0,
+      turn:"not yet",
       
       
 
     };
   },
 
-  mounted() {
-    this.drawBoard();
-
-  },
+  
 
  
 
   methods: {
-    drawBoard() {
-      this.board = "dscknclsk";
+
+    whoGoes() {
+      console.log("whogoes");
+      var first = prompt("Who goes first?", "X or O");
+      if(first == "X"){
+        this.turn = 0;
+      }
+      else{
+        this.turn = 1;
+      }
     },
+
+   
 
     
 

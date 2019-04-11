@@ -1,7 +1,7 @@
 <template>
     <div>
         <div @click="onClickTile">
-        <div class="tile"><img class="mx-auto d-block" :src="image" width="20" height="20" ></div>
+        <div class="tile"><img :src="image" width="20" height="20" ></div>
         
         </div>
     </div>
@@ -27,17 +27,25 @@ export default {
     },
     methods: {
         onClickTile() {
-            
-            if(this.turn%2 == 0){
-                this.image = '/images/Xs.png';
+
+            //as long as image is not blank no token can be placed.
+            if(this.image != '/images/blank.png'){
+                console.log("place taken")
             }
             else{
-                this.image = '/images/Os.png';
-            }
-            this.status = 0;
+                if(this.turn%2 == 0){
+                    console.log("X");
+                    this.image = '/images/Xs.png';
+                }
+                else if (this.turn%2 == 1){
+                    this.image = '/images/Os.png';
+                }
+                this.status = 0;
 
-            this.$emit("onClickedTile", {rowId: this.rowId, colId: this.colId})
+                this.$emit("onClickedTile", {rowId: this.rowId, colId: this.colId})
+            }
         }
     }
 }
+
 </script>

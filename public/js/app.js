@@ -1984,8 +1984,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
+  mounted: function mounted() {
+    this.drawBoard();
+  },
   data: function data() {
     return {
       rows: [{
@@ -2008,16 +2012,19 @@ __webpack_require__.r(__webpack_exports__);
         id: 3,
         value: 0
       }],
-      image: '/images/Os.png',
-      turn: 0
+      turn: "not yet"
     };
   },
-  mounted: function mounted() {
-    this.drawBoard();
-  },
   methods: {
-    drawBoard: function drawBoard() {
-      this.board = "dscknclsk";
+    whoGoes: function whoGoes() {
+      console.log("whogoes");
+      var first = prompt("Who goes first?", "X or O");
+
+      if (first == "X") {
+        this.turn = 0;
+      } else {
+        this.turn = 1;
+      }
     },
     changeTile: function changeTile(obj) {
       this.turn = this.turn + 1;
@@ -2062,17 +2069,23 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     onClickTile: function onClickTile() {
-      if (this.turn % 2 == 0) {
-        this.image = '/images/Xs.png';
+      //as long as image is not blank no token can be placed.
+      if (this.image != '/images/blank.png') {
+        console.log("place taken");
       } else {
-        this.image = '/images/Os.png';
-      }
+        if (this.turn % 2 == 0) {
+          console.log("X");
+          this.image = '/images/Xs.png';
+        } else if (this.turn % 2 == 1) {
+          this.image = '/images/Os.png';
+        }
 
-      this.status = 0;
-      this.$emit("onClickedTile", {
-        rowId: this.rowId,
-        colId: this.colId
-      });
+        this.status = 0;
+        this.$emit("onClickedTile", {
+          rowId: this.rowId,
+          colId: this.colId
+        });
+      }
     }
   }
 });
@@ -37949,17 +37962,12 @@ var render = function() {
       0
     ),
     _vm._v(" "),
-    _vm._m(0)
+    _c("div", [
+      _c("button", { on: { click: _vm.whoGoes } }, [_vm._v("Play the game")])
+    ])
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", [_c("button", [_vm._v("Play the game")])])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -37984,10 +37992,7 @@ var render = function() {
   return _c("div", [
     _c("div", { on: { click: _vm.onClickTile } }, [
       _c("div", { staticClass: "tile" }, [
-        _c("img", {
-          staticClass: "mx-auto d-block",
-          attrs: { src: _vm.image, width: "20", height: "20" }
-        })
+        _c("img", { attrs: { src: _vm.image, width: "20", height: "20" } })
       ])
     ])
   ])
@@ -50308,14 +50313,15 @@ __webpack_require__.r(__webpack_exports__);
 /*!*********************************************!*\
   !*** ./resources/js/components/testing.vue ***!
   \*********************************************/
-/*! exports provided: default */
+/*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _testing_vue_vue_type_template_id_6d6b2b95___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./testing.vue?vue&type=template&id=6d6b2b95& */ "./resources/js/components/testing.vue?vue&type=template&id=6d6b2b95&");
 /* harmony import */ var _testing_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./testing.vue?vue&type=script&lang=js& */ "./resources/js/components/testing.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _testing_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _testing_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
 
@@ -50345,7 +50351,7 @@ component.options.__file = "resources/js/components/testing.vue"
 /*!**********************************************************************!*\
   !*** ./resources/js/components/testing.vue?vue&type=script&lang=js& ***!
   \**********************************************************************/
-/*! exports provided: default */
+/*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";

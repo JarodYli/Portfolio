@@ -19,9 +19,7 @@ export default {
 
     data () {
         return {
-            status: "hey",
 
-            
             image: '/images/blank.png',
         };
     },
@@ -30,17 +28,17 @@ export default {
 
             //as long as image is not blank no token can be placed.
             if(this.image != '/images/blank.png'){
-                console.log("place taken")
+                // console.log("place taken")
             }
             else{
                 if(this.turn%2 == 0){
-                    console.log("X");
+                    // console.log("X");
                     this.image = '/images/Xs.png';
                 }
                 else if (this.turn%2 == 1){
                     this.image = '/images/Os.png';
                 }
-                this.status = 0;
+
 
                 this.$emit("onClickedTile", {rowId: this.rowId, colId: this.colId})
             }

@@ -24,9 +24,15 @@ window.Vue = require('vue');
 
 Vue.component('Clock', require('./components/Clock.vue') .default);
 
+
+
+// Tic Tac Toe components:
 Vue.component('testtac', require('./components/testtac.vue') .default);
 
 Vue.component('tile', require('./components/tile.vue') .default);
+
+Vue.component('TicTacScore', require('./components/TicTacScore.vue') .default);
+
 
 Vue.component('testing', require('./components/testing.vue') .default);
 

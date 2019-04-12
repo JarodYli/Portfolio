@@ -1859,6 +1859,95 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/TicTacScore.vue?vue&type=script&lang=js&":
+/*!**********************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/TicTacScore.vue?vue&type=script&lang=js& ***!
+  \**********************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      winArrayRows: [[-5, -5, -5], [-5, -5, -5], [-5, -5, -5], [-5, -5, -5]],
+      winArrayCols: [[-5, -5, -5], [-5, -5, -5], [-5, -5, -5], [-5, -5, -5]]
+    };
+  },
+  mounted: function mounted() {
+    console.log("Score Mounted"); //   console.log(this.placeValue);
+  },
+  props: {
+    placeValue: Number,
+    xCord: Number,
+    yCord: Number
+  },
+  methods: {
+    testing: function testing() {
+      //   console.log("in here testing",this.xCord);
+      return this.placeValue;
+    },
+    getSum: function getSum(total, num) {
+      return total + num;
+    }
+  },
+  computed: {
+    winUpdate: function winUpdate() {
+      //  console.log("PlaceValue:",this.placeValue);
+      return this.placeValue;
+    },
+    winPushRows: function winPushRows() {
+      //   console.log("xCord:", this.xCord, "yCord:", this.yCord);
+      this.winArrayRows[this.xCord][this.yCord] = this.placeValue; // creating diagnol arrays
+
+      if (this.xCord == this.yCord) {
+        this.winArrayRows[3][this.yCord] = this.placeValue;
+      }
+
+      return this.xCord && this.yCord;
+    },
+    winPushCols: function winPushCols() {
+      this.winArrayCols[this.yCord][this.xCord] = this.placeValue; // creating diagnol arrays
+
+      if (this.yCord == 2 - this.xCord) {
+        //   console.log(this.xCord, this.yCord);
+        this.winArrayCols[3][this.xCord] = this.placeValue;
+      } // console.log(this.winArrayCols[0].reduce(this.getSum));
+
+
+      for (this.k in this.winArrayCols) {
+        console.log("array:", this.k); //   console.log("array:", this.k.reduce(this.getSum));
+      }
+
+      return this.xCord && this.yCord;
+    }
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/testing.vue?vue&type=script&lang=js&":
 /*!******************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/testing.vue?vue&type=script&lang=js& ***!
@@ -1951,16 +2040,7 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _tile__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./tile */ "./resources/js/components/tile.vue");
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+/* harmony import */ var _TicTacScore__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./TicTacScore */ "./resources/js/components/TicTacScore.vue");
 //
 //
 //
@@ -1986,33 +2066,33 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 
+
 /* harmony default export */ __webpack_exports__["default"] = ({
-  mounted: function mounted() {
-    this.drawBoard();
-  },
+  mounted: function mounted() {},
   data: function data() {
     return {
       rows: [{
+        id: 0,
+        value: 0
+      }, {
         id: 1,
         value: 0
       }, {
         id: 2,
-        value: 0
-      }, {
-        id: 3,
         value: 0
       }],
       cols: [{
+        id: 0,
+        value: 0
+      }, {
         id: 1,
         value: 0
       }, {
         id: 2,
         value: 0
-      }, {
-        id: 3,
-        value: 0
       }],
-      turn: "not yet"
+      placeValue: 0,
+      turn: 0.5
     };
   },
   methods: {
@@ -2026,9 +2106,21 @@ __webpack_require__.r(__webpack_exports__);
         this.turn = 1;
       }
     },
+    reset: function reset() {},
     changeTile: function changeTile(obj) {
-      this.turn = this.turn + 1;
-      console.log(this.turn);
+      // console.log("obj line 61",obj.rowId);
+      this.turn = this.turn + 1; // console.log(this.turn);
+
+      this.scoreUpdate();
+      this.xCord = obj.rowId;
+      this.yCord = obj.colId;
+    },
+    scoreUpdate: function scoreUpdate() {
+      if (this.turn % 2 == 1) {
+        this.placeValue = 2;
+      } else if (this.turn % 2 == 0) {
+        this.placeValue = 1;
+      }
     }
   }
 });
@@ -2063,24 +2155,21 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
-      status: "hey",
       image: '/images/blank.png'
     };
   },
   methods: {
     onClickTile: function onClickTile() {
       //as long as image is not blank no token can be placed.
-      if (this.image != '/images/blank.png') {
-        console.log("place taken");
+      if (this.image != '/images/blank.png') {// console.log("place taken")
       } else {
         if (this.turn % 2 == 0) {
-          console.log("X");
+          // console.log("X");
           this.image = '/images/Xs.png';
         } else if (this.turn % 2 == 1) {
           this.image = '/images/Os.png';
         }
 
-        this.status = 0;
         this.$emit("onClickedTile", {
           rowId: this.rowId,
           colId: this.colId
@@ -6549,7 +6638,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.square {\n    height: 50px;\n    width: 50px;\n\n    border-color: black;\n    border-style: solid;\n}\n", ""]);
+exports.push([module.i, "\n.square {\n  height: 50px;\n  width: 50px;\n\n  border-color: black;\n  border-style: solid;\n}\n", ""]);
 
 // exports
 
@@ -37829,6 +37918,46 @@ render._withStripped = true
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/TicTacScore.vue?vue&type=template&id=3b4a4da2&scoped=true&":
+/*!**************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/TicTacScore.vue?vue&type=template&id=3b4a4da2&scoped=true& ***!
+  \**************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [
+    _c("p", [_vm._v(_vm._s(_vm.winUpdate))]),
+    _vm._v(" "),
+    _c("p", [_vm._v(_vm._s(_vm.xCord))]),
+    _vm._v(" "),
+    _c("p", [_vm._v(_vm._s(_vm.yCord))]),
+    _vm._v(" "),
+    _c("p", [_vm._v(_vm._s(_vm.winPushRows))]),
+    _vm._v(" "),
+    _c("p", [_vm._v(_vm._s(_vm.winPushCols))]),
+    _vm._v(" "),
+    _c("p", [_vm._v("Rows" + _vm._s(_vm.winArrayRows))]),
+    _vm._v(" "),
+    _c("p", [_vm._v("Cols" + _vm._s(_vm.winArrayCols))]),
+    _vm._v(" "),
+    _c("button", { on: { click: _vm.testing } }, [_vm._v("Test")])
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/testing.vue?vue&type=template&id=6d6b2b95&":
 /*!**********************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/testing.vue?vue&type=template&id=6d6b2b95& ***!
@@ -37933,39 +38062,53 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
-    _c("h1", [_vm._v("Tic Tac Toe")]),
-    _vm._v(" "),
-    _c(
-      "div",
-      { staticClass: "container" },
-      _vm._l(_vm.rows, function(row) {
-        return _c(
-          "div",
-          { key: row.id, staticClass: "row" },
-          _vm._l(_vm.cols, function(col) {
-            return _c(
-              "div",
-              { key: col.id, staticClass: "col-.5 square justify-center" },
-              [
-                _c("tile", {
-                  attrs: { turn: _vm.turn, colId: col.id, rowId: row.id },
-                  on: { onClickedTile: _vm.changeTile }
-                })
-              ],
-              1
-            )
-          }),
-          0
-        )
+  return _c(
+    "div",
+    [
+      _c("h1", [_vm._v("Tic Tac Toe")]),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "container" },
+        _vm._l(_vm.rows, function(row) {
+          return _c(
+            "div",
+            { key: row.id, staticClass: "row" },
+            _vm._l(_vm.cols, function(col) {
+              return _c(
+                "div",
+                { key: col.id, staticClass: "col-.5 square" },
+                [
+                  _c("tile", {
+                    attrs: { turn: _vm.turn, colId: col.id, rowId: row.id },
+                    on: { onClickedTile: _vm.changeTile }
+                  })
+                ],
+                1
+              )
+            }),
+            0
+          )
+        }),
+        0
+      ),
+      _vm._v(" "),
+      _c("TicTacScore", {
+        attrs: {
+          placeValue: _vm.placeValue,
+          xCord: _vm.xCord,
+          yCord: _vm.yCord
+        }
       }),
-      0
-    ),
-    _vm._v(" "),
-    _c("div", [
-      _c("button", { on: { click: _vm.whoGoes } }, [_vm._v("Play the game")])
-    ])
-  ])
+      _vm._v(" "),
+      _c("div", [
+        _c("button", { on: { click: _vm.whoGoes } }, [_vm._v("Play the game")]),
+        _vm._v(" "),
+        _c("button", { on: { click: _vm.reset } }, [_vm._v("Reset")])
+      ])
+    ],
+    1
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -50165,9 +50308,11 @@ window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.
 // const files = require.context('./', true, /\.vue$/i);
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default));
 
-Vue.component('Clock', __webpack_require__(/*! ./components/Clock.vue */ "./resources/js/components/Clock.vue")["default"]);
+Vue.component('Clock', __webpack_require__(/*! ./components/Clock.vue */ "./resources/js/components/Clock.vue")["default"]); // Tic Tac Toe components:
+
 Vue.component('testtac', __webpack_require__(/*! ./components/testtac.vue */ "./resources/js/components/testtac.vue")["default"]);
 Vue.component('tile', __webpack_require__(/*! ./components/tile.vue */ "./resources/js/components/tile.vue")["default"]);
+Vue.component('TicTacScore', __webpack_require__(/*! ./components/TicTacScore.vue */ "./resources/js/components/TicTacScore.vue")["default"]);
 Vue.component('testing', __webpack_require__(/*! ./components/testing.vue */ "./resources/js/components/testing.vue")["default"]);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -50304,6 +50449,75 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Clock_vue_vue_type_template_id_cac8c49a___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Clock_vue_vue_type_template_id_cac8c49a___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/TicTacScore.vue":
+/*!*************************************************!*\
+  !*** ./resources/js/components/TicTacScore.vue ***!
+  \*************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _TicTacScore_vue_vue_type_template_id_3b4a4da2_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./TicTacScore.vue?vue&type=template&id=3b4a4da2&scoped=true& */ "./resources/js/components/TicTacScore.vue?vue&type=template&id=3b4a4da2&scoped=true&");
+/* harmony import */ var _TicTacScore_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./TicTacScore.vue?vue&type=script&lang=js& */ "./resources/js/components/TicTacScore.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _TicTacScore_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _TicTacScore_vue_vue_type_template_id_3b4a4da2_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _TicTacScore_vue_vue_type_template_id_3b4a4da2_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  "3b4a4da2",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/TicTacScore.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/TicTacScore.vue?vue&type=script&lang=js&":
+/*!**************************************************************************!*\
+  !*** ./resources/js/components/TicTacScore.vue?vue&type=script&lang=js& ***!
+  \**************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_TicTacScore_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./TicTacScore.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/TicTacScore.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_TicTacScore_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/TicTacScore.vue?vue&type=template&id=3b4a4da2&scoped=true&":
+/*!********************************************************************************************!*\
+  !*** ./resources/js/components/TicTacScore.vue?vue&type=template&id=3b4a4da2&scoped=true& ***!
+  \********************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_TicTacScore_vue_vue_type_template_id_3b4a4da2_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./TicTacScore.vue?vue&type=template&id=3b4a4da2&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/TicTacScore.vue?vue&type=template&id=3b4a4da2&scoped=true&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_TicTacScore_vue_vue_type_template_id_3b4a4da2_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_TicTacScore_vue_vue_type_template_id_3b4a4da2_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 

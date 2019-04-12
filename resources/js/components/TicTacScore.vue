@@ -1,15 +1,9 @@
 <template>
   <div>
     <h1>{{theVictor}}</h1>
-    <p>{{winUpdate}}</p>
-    <p>{{xCord}}</p>
-    <p>{{yCord}}</p>
+
     <p>{{winPushRows}}</p>
     <p>{{winPushCols}}</p>
-    <p>Rows{{winArrayRows}}</p>
-    <p>Cols{{winArrayCols}}</p>
-
-    <button @click="testing">Test</button>
   </div>
 </template>
 
@@ -21,14 +15,12 @@ export default {
 
       winArrayCols: [[-5, -5, -5], [-5, -5, -5], [-5, -5, -5], [-5, -5, -5]],
 
-      theVictor: ""
+      theVictor: "----------"
     };
   },
 
   mounted() {
-    console.log("Score Mounted");
-
-    //   console.log(this.placeValue);
+     
   },
 
   props: {
@@ -38,11 +30,7 @@ export default {
   },
 
   methods: {
-    testing() {
-      //   console.log("in here testing",this.xCord);
-      return this.placeValue;
-    },
-
+    // function for the reduce method
     getSum(total, num) {
       return total + num;
     },
@@ -51,13 +39,19 @@ export default {
       var i = 0;
       var winM = this.winArrayCols.concat(this.winArrayRows);
       var winWatch = 0;
-
-      // for every
+      // for every array in both arrays
       for (this.items in winM) {
         winWatch = winM[i].reduce(this.getSum);
 
         //if the sum of any array ever equals 3 or 6 report the winner respectively
-        this.theVictor = winWatch == 3 ? "Winner is Os" : winWatch == 6 ? "Winner is X" : "";
+        if (winWatch == 3) {
+          this.theVictor = "Winner is Os";
+          break;
+        }
+        if (winWatch == 6) {
+          this.theVictor = "Winner is Xs";
+          break;
+        }
         i++;
       }
     }
@@ -77,8 +71,6 @@ export default {
         this.winArrayRows[3][this.yCord] = this.placeValue;
       }
 
-      this.winner();
-      return this.xCord && this.yCord;
     },
 
     winPushCols() {
@@ -91,8 +83,6 @@ export default {
       }
 
       this.winner();
-
-      return this.xCord && this.yCord;
     }
   }
 };

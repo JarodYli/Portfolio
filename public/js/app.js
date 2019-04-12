@@ -1877,45 +1877,43 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
       winArrayRows: [[-5, -5, -5], [-5, -5, -5], [-5, -5, -5], [-5, -5, -5]],
       winArrayCols: [[-5, -5, -5], [-5, -5, -5], [-5, -5, -5], [-5, -5, -5]],
-      theVictor: ""
+      theVictor: "----------"
     };
   },
-  mounted: function mounted() {
-    console.log("Score Mounted"); //   console.log(this.placeValue);
-  },
+  mounted: function mounted() {},
   props: {
     placeValue: Number,
     xCord: Number,
     yCord: Number
   },
   methods: {
-    testing: function testing() {
-      //   console.log("in here testing",this.xCord);
-      return this.placeValue;
-    },
+    // function for the reduce method
     getSum: function getSum(total, num) {
       return total + num;
     },
     winner: function winner() {
       var i = 0;
       var winM = this.winArrayCols.concat(this.winArrayRows);
-      var winWatch = 0; // for every
+      var winWatch = 0; // for every array in both arrays
 
       for (this.items in winM) {
         winWatch = winM[i].reduce(this.getSum); //if the sum of any array ever equals 3 or 6 report the winner respectively
 
-        this.theVictor = winWatch == 3 ? "Winner is Os" : winWatch == 6 ? "Winner is X" : "";
+        if (winWatch == 3) {
+          this.theVictor = "Winner is Os";
+          break;
+        }
+
+        if (winWatch == 6) {
+          this.theVictor = "Winner is Xs";
+          break;
+        }
+
         i++;
       }
     }
@@ -1931,9 +1929,6 @@ __webpack_require__.r(__webpack_exports__);
       if (this.xCord == this.yCord) {
         this.winArrayRows[3][this.yCord] = this.placeValue;
       }
-
-      this.winner();
-      return this.xCord && this.yCord;
     },
     winPushCols: function winPushCols() {
       // generates arrays that corresponds with columns
@@ -1944,7 +1939,6 @@ __webpack_require__.r(__webpack_exports__);
       }
 
       this.winner();
-      return this.xCord && this.yCord;
     }
   }
 });
@@ -2094,7 +2088,7 @@ __webpack_require__.r(__webpack_exports__);
         id: 2,
         value: 0
       }],
-      placeValue: 0,
+      placeValue: -5,
       xCord: 0,
       yCord: 0,
       turn: 0.5
@@ -2102,7 +2096,6 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     whoGoes: function whoGoes() {
-      console.log("whogoes");
       var first = prompt("Who goes first?", "X or O");
 
       if (first == "X") {
@@ -37941,21 +37934,9 @@ var render = function() {
   return _c("div", [
     _c("h1", [_vm._v(_vm._s(_vm.theVictor))]),
     _vm._v(" "),
-    _c("p", [_vm._v(_vm._s(_vm.winUpdate))]),
-    _vm._v(" "),
-    _c("p", [_vm._v(_vm._s(_vm.xCord))]),
-    _vm._v(" "),
-    _c("p", [_vm._v(_vm._s(_vm.yCord))]),
-    _vm._v(" "),
     _c("p", [_vm._v(_vm._s(_vm.winPushRows))]),
     _vm._v(" "),
-    _c("p", [_vm._v(_vm._s(_vm.winPushCols))]),
-    _vm._v(" "),
-    _c("p", [_vm._v("Rows" + _vm._s(_vm.winArrayRows))]),
-    _vm._v(" "),
-    _c("p", [_vm._v("Cols" + _vm._s(_vm.winArrayCols))]),
-    _vm._v(" "),
-    _c("button", { on: { click: _vm.testing } }, [_vm._v("Test")])
+    _c("p", [_vm._v(_vm._s(_vm.winPushCols))])
   ])
 }
 var staticRenderFns = []

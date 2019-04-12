@@ -35,7 +35,7 @@ export default {
       rows: [{ id: 0, value: 0 }, { id: 1, value: 0 }, { id: 2, value: 0 }],
       cols: [{ id: 0, value: 0 }, { id: 1, value: 0 }, { id: 2, value: 0 }],
 
-      placeValue:0,
+      placeValue:-5,
       xCord: 0,
       yCord: 0,
       turn: 0.5,
@@ -44,7 +44,7 @@ export default {
 
   methods: {
     whoGoes() {
-      console.log("whogoes");
+
       var first = prompt("Who goes first?", "X or O");
       if (first == "X") {
         this.turn = 0;

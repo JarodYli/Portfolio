@@ -1883,17 +1883,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
       winArrayRows: [[-5, -5, -5], [-5, -5, -5], [-5, -5, -5], [-5, -5, -5]],
-      winArrayCols: [[-5, -5, -5], [-5, -5, -5], [-5, -5, -5], [-5, -5, -5]]
+      winArrayCols: [[-5, -5, -5], [-5, -5, -5], [-5, -5, -5], [-5, -5, -5]],
+      theVictor: ""
     };
   },
   mounted: function mounted() {
@@ -1911,36 +1906,44 @@ __webpack_require__.r(__webpack_exports__);
     },
     getSum: function getSum(total, num) {
       return total + num;
+    },
+    winner: function winner() {
+      var i = 0;
+      var winM = this.winArrayCols.concat(this.winArrayRows);
+      var winWatch = 0; // for every
+
+      for (this.items in winM) {
+        winWatch = winM[i].reduce(this.getSum); //if the sum of any array ever equals 3 or 6 report the winner respectively
+
+        this.theVictor = winWatch == 3 ? "Winner is Os" : winWatch == 6 ? "Winner is X" : "";
+        i++;
+      }
     }
   },
   computed: {
     winUpdate: function winUpdate() {
-      //  console.log("PlaceValue:",this.placeValue);
       return this.placeValue;
     },
     winPushRows: function winPushRows() {
-      //   console.log("xCord:", this.xCord, "yCord:", this.yCord);
+      //generate the arrays that correspond with rows
       this.winArrayRows[this.xCord][this.yCord] = this.placeValue; // creating diagnol arrays
 
       if (this.xCord == this.yCord) {
         this.winArrayRows[3][this.yCord] = this.placeValue;
       }
 
+      this.winner();
       return this.xCord && this.yCord;
     },
     winPushCols: function winPushCols() {
+      // generates arrays that corresponds with columns
       this.winArrayCols[this.yCord][this.xCord] = this.placeValue; // creating diagnol arrays
 
       if (this.yCord == 2 - this.xCord) {
-        //   console.log(this.xCord, this.yCord);
         this.winArrayCols[3][this.xCord] = this.placeValue;
-      } // console.log(this.winArrayCols[0].reduce(this.getSum));
-
-
-      for (this.k in this.winArrayCols) {
-        console.log("array:", this.k); //   console.log("array:", this.k.reduce(this.getSum));
       }
 
+      this.winner();
       return this.xCord && this.yCord;
     }
   }
@@ -2092,6 +2095,8 @@ __webpack_require__.r(__webpack_exports__);
         value: 0
       }],
       placeValue: 0,
+      xCord: 0,
+      yCord: 0,
       turn: 0.5
     };
   },
@@ -37934,6 +37939,8 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
+    _c("h1", [_vm._v(_vm._s(_vm.theVictor))]),
+    _vm._v(" "),
     _c("p", [_vm._v(_vm._s(_vm.winUpdate))]),
     _vm._v(" "),
     _c("p", [_vm._v(_vm._s(_vm.xCord))]),

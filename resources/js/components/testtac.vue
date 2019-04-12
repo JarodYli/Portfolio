@@ -36,7 +36,8 @@ export default {
       cols: [{ id: 0, value: 0 }, { id: 1, value: 0 }, { id: 2, value: 0 }],
 
       placeValue:0,
-
+      xCord: 0,
+      yCord: 0,
       turn: 0.5,
     };
   },

@@ -33,6 +33,8 @@ Vue.component('tile', require('./components/tile.vue') .default);
 
 Vue.component('TicTacScore', require('./components/TicTacScore.vue') .default);
 
+// Calculator Components
+Vue.component('calculatorbuttons', require('./components/calculatorbuttons.vue') .default);
 
 Vue.component('testing', require('./components/testing.vue') .default);
 

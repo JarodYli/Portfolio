@@ -38,9 +38,15 @@ export default {
     winner() {
       var i = 0;
       var winM = this.winArrayCols.concat(this.winArrayRows);
+      var flatWinM = winM.flat(8);
       var winWatch = 0;
       // for every array in both arrays
       for (this.items in winM) {
+
+        if(!flatWinM.includes(-5)){
+            this.theVictor = "C.A.T";
+            break;
+        }
         winWatch = winM[i].reduce(this.getSum);
 
         //if the sum of any array ever equals 3 or 6 report the winner respectively

@@ -16,7 +16,7 @@
 
     <div>
       <button @click="whoGoes">Play the game</button>
-      <button @click="reset">Reset</button>
+      <!-- <button @click="reset">Reset</button> -->
     </div>
   </div>
 </template>
@@ -76,8 +76,6 @@ export default {
         else if(this.turn%2 == 0){
           this.placeValue =1;
         }
-
-        
 
       },
     

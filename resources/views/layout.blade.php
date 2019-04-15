@@ -35,7 +35,7 @@
         </li> 
        
         <li>
-            <a href="/campaign">Campaign</a>
+            <a href="/restaurant">Restaurant</a>
         </li> 
         
         <li>

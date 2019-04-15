@@ -35,9 +35,9 @@ class PagesController extends Controller
         ]);
     }
 
-    public function campaign()
+    public function restaurant()
     {
-        return view('campaign', [
+        return view('restaurant', [
 
         ]);
     }

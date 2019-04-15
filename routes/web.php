@@ -19,6 +19,6 @@ Route::get('/ticTacToe', 'PagesController@ticTacToe');
 
 Route::get('/calculator', 'PagesController@calculator');
 
-Route::get('/campaign', 'PagesController@campaign');
+Route::get('/restaurant', 'PagesController@restaurant');
 
 Route::get('/crud', 'PagesController@crud');

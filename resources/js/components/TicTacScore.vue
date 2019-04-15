@@ -15,7 +15,9 @@ export default {
 
       winArrayCols: [[-5, -5, -5], [-5, -5, -5], [-5, -5, -5], [-5, -5, -5]],
 
-      theVictor: "----------"
+      theVictor: "----------",
+
+      noVictor:true,
     };
   },
 
@@ -42,21 +44,23 @@ export default {
       var winWatch = 0;
       // for every array in both arrays
       for (this.items in winM) {
-
-        if(!flatWinM.includes(-5)){
-            this.theVictor = "C.A.T";
-            break;
-        }
         winWatch = winM[i].reduce(this.getSum);
 
         //if the sum of any array ever equals 3 or 6 report the winner respectively
         if (winWatch == 3) {
           this.theVictor = "Winner is Os";
+          this.noVictor = false;
           break;
         }
         if (winWatch == 6) {
           this.theVictor = "Winner is Xs";
+          this.noVictor = false;
           break;
+        }
+
+        if(!flatWinM.includes(-5)){
+            this.theVictor = "C.A.T";
+            break;
         }
         i++;
       }
@@ -87,8 +91,9 @@ export default {
       if (this.yCord == 2 - this.xCord) {
         this.winArrayCols[3][this.xCord] = this.placeValue;
       }
-
+      if(this.noVictor){
       this.winner();
+      }
     }
   }
 };

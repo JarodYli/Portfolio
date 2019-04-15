@@ -1,9 +1,9 @@
 <template>
     <div>
         <div @click="onClickTile">
-        <div class="tile"><img :src="image" width="20" height="20" ></div>
-        
+        <div class="tile"><img :src="image" width="75" height="75"></div>
         </div>
+
     </div>
 
 </template>

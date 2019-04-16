@@ -4,6 +4,8 @@
 
     <p>{{winPushRows}}</p>
     <p>{{winPushCols}}</p>
+
+    
   </div>
 </template>
 
@@ -45,26 +47,27 @@ export default {
       // for every array in both arrays
       for (this.items in winM) {
         winWatch = winM[i].reduce(this.getSum);
-
+        console.log("hoi:", winWatch);
         //if the sum of any array ever equals 3 or 6 report the winner respectively
         if (winWatch == 3) {
           this.theVictor = "Winner is Os";
           this.noVictor = false;
-          return 0;
+          console.log("YUppy");
           break;
         }
         if (winWatch == 6) {
           this.theVictor = "Winner is Xs";
           this.noVictor = false;
-          return 0;
+          console.log("YUppy");
           break;
         }
 
-        else if(!flatWinM.includes(-5)){
-            this.theVictor = "C.A.T";
-            break;
-        }
         i++;
+      }
+        if(!flatWinM.includes(-5) && (this.noVictor)){
+          this.theVictor = "C.A.T";
+          console.log(this.winArrayCols[3]);
+
       }
     }
   },
@@ -96,7 +99,8 @@ export default {
       if(this.noVictor){
       this.winner();
       }
-    }
+      }
+    
   }
 };
 </script>

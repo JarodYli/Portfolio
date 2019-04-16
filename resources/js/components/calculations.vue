@@ -6,14 +6,14 @@
 
     <div class="container-fluid CNTR">
         <div class="row">
-            <calcViews :calculatedVal="outPut" :opIn="opInput" :next="nextInput"></calcViews>
+            <calcViews class="TextSize" :calculatedVal="outPut" :opIn="opInput" :next="nextInput"></calcViews>
             </div>
 
       <div class="row">
         <div class="col">
           <span v-once>
             <div class="row" v-for="n in 3" :key="n">
-              <div class="col square" v-for="j in 3" :key="j" :id="numbersForButtons--">
+              <div class="col square TextSize" v-for="j in 3" :key="j" :id="numbersForButtons--">
                   <p>{{numbersForButtons}}</p>
                 <calcButtons :buttID="numbersForButtons.toString()" v-on:onClickedTile="eval"></calcButtons>
               </div>
@@ -22,7 +22,7 @@
 
           <div class="row">
 
-            <div class="col square">
+            <div class="col square ">
                 <p>0</p>
                 <calcButtons :buttID="'0'" v-on:onClickedTile="eval"></calcButtons>
             </div>

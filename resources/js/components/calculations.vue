@@ -4,7 +4,7 @@
   <div>
     <h1>Calculator</h1>
 
-    <div class="container CNTR">
+    <div class="container-fluid CNTR">
         <div class="row">
             <calcViews :calculatedVal="outPut" :opIn="opInput" :next="nextInput"></calcViews>
             </div>
@@ -30,6 +30,10 @@
                 <p>.</p>
                 <calcButtons :buttID="'.'" v-on:onClickedTile="eval" ></calcButtons>
             </div>
+            <div class="col square" >
+                <p>-</p>
+                <calcButtons :buttID="'-'" v-on:onClickedTile="eval" ></calcButtons>
+            </div>
             <div class="col square" @click="assess()">=</div>
 
             </div>
@@ -43,7 +47,12 @@
           <calcButtons :opID="ops" v-on:onClickedTile="eval"></calcButtons></div>
         </div>
       </div>
-
+      
+      <div class="row">
+        <div class="col-7 square" @click="clear()">
+          <p>CLEAR</p>
+          </div>
+      </div>
     </div>
   </div>
 </template>
@@ -63,7 +72,7 @@ export default {
       firstInput: '',
       opInput: '',
       nextInput: '',
-      outPut:'',
+      outPut:'0',
       flip:true,
       opFlip:true,
 
@@ -99,7 +108,6 @@ export default {
 
           if((obj.buttID || obj.buttID == 0) && (this.flip == false)){
               this.nextInput = this.nextInput + obj.buttID;
-              this.outPut = this.nextInput;
               this.opFlip = false;
 
               console.log("second number");
@@ -147,6 +155,15 @@ export default {
           
           console.log('gimme a comma');
           this.outPut = this.outPut + ".";
+      },
+
+      clear(){
+      this.firstInput ='';
+      this.opInput = '';
+      this.nextInput = '';
+      this.outPut = '0';
+      this.flip = true;
+      this.opFlip = true;
       }
   },
 
@@ -158,6 +175,7 @@ export default {
 
 .CNTR{
     text-align:center;
+    width: 800px;
 }
 
 .square {

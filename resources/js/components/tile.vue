@@ -1,10 +1,11 @@
 <template>
-    <div>
+    
         <div @click="onClickTile">
-        <div class="tile"><img :src="image" width="75" height="75"></div>
+                    <img class="center" :src="image" width="75" height="75">
+
         </div>
 
-    </div>
+    
 
 </template>
 
@@ -47,3 +48,25 @@ export default {
 }
 
 </script>
+
+<style>
+.square {
+  height: 50px;
+  width: 50px;
+
+  border-color: black;
+  border-style: solid;
+}
+
+.CNTR{
+    text-align:center;
+}
+
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top:auto;
+  width: 50%;
+}
+</style>

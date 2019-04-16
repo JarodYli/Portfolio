@@ -90,4 +90,15 @@ export default {
   border-color: black;
   border-style: solid;
 }
+
+.CNTR{
+    text-align:center;
+}
+
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
 </style>

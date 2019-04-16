@@ -30,10 +30,18 @@
 
         mounted(){
             axios
-                .get('https://entree-f18.herokuapp.com/v1/menu/8')
-                .then(response => (this.info = response.data))
+                .get('https://cors-anywhere.herokuapp.com/' + 'https://entree-f18.herokuapp.com/v1/menu/1')
+                .then(response => (this.info = response.data.menu_items))
+
+
         },
         
+        methods:{
+
+
+
+            
+        }
     }
 </script>
 

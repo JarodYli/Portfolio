@@ -50,15 +50,17 @@ export default {
         if (winWatch == 3) {
           this.theVictor = "Winner is Os";
           this.noVictor = false;
+          return 0;
           break;
         }
         if (winWatch == 6) {
           this.theVictor = "Winner is Xs";
           this.noVictor = false;
+          return 0;
           break;
         }
 
-        if(!flatWinM.includes(-5)){
+        else if(!flatWinM.includes(-5)){
             this.theVictor = "C.A.T";
             break;
         }

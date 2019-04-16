@@ -1,11 +1,13 @@
 <template>
   <div>
-    <h1>{{time}}</h1>
-    <h1>{{regTime}}</h1>
+    <h1>Millitary Time: {{time}}</h1>
+    <h1>Standard Time: {{regTime}}</h1>
     
 
 
-
+    <p>-</p>
+    <p>-</p>
+    <p>-</p>
     
     <h1>National Humiliation Day January 4, 2020</h1>
     
@@ -67,7 +69,8 @@
             // Finds millitary time
             slicer(){
                 this.time = new Date();
-                this. time = this.time.toISOString().slice(11, 19);
+                // this. time = this.time.toISOString().slice(11, 19);
+                this.time = this.time.getHours().toString() + ":" + this.time.getMinutes().toString() + ":" + this.time.getSeconds().toString();
                 var self = this;
                 setInterval(() => {
                     // self.time = new Date();
@@ -80,8 +83,9 @@
                 this.regTime = this.time;
 
                 var chunks = this.regTime.split(":");
-                var armtime = []
                 
+                var armtime = [];
+
                 // change numbers between 13 and 24
                 if (parseInt(chunks[0]) <= 24 && parseInt(chunks[0]) > 12) {
                     armtime.push(parseInt(chunks[0]) - 12 );

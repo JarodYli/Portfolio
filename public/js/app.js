@@ -1880,6 +1880,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -1907,26 +1909,29 @@ __webpack_require__.r(__webpack_exports__);
       var winWatch = 0; // for every array in both arrays
 
       for (this.items in winM) {
-        winWatch = winM[i].reduce(this.getSum); //if the sum of any array ever equals 3 or 6 report the winner respectively
+        winWatch = winM[i].reduce(this.getSum);
+        console.log("hoi:", winWatch); //if the sum of any array ever equals 3 or 6 report the winner respectively
 
         if (winWatch == 3) {
           this.theVictor = "Winner is Os";
           this.noVictor = false;
-          return 0;
+          console.log("YUppy");
           break;
         }
 
         if (winWatch == 6) {
           this.theVictor = "Winner is Xs";
           this.noVictor = false;
-          return 0;
-          break;
-        } else if (!flatWinM.includes(-5)) {
-          this.theVictor = "C.A.T";
+          console.log("YUppy");
           break;
         }
 
         i++;
+      }
+
+      if (!flatWinM.includes(-5) && this.noVictor) {
+        this.theVictor = "C.A.T";
+        console.log(this.winArrayCols[3]);
       }
     }
   },
@@ -2261,6 +2266,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
 //
 //
 //
@@ -38373,10 +38379,8 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
-    _c("div", { on: { click: _vm.onClickTile } }, [
-      _c("img", { attrs: { src: _vm.image, width: "75", height: "50" } })
-    ])
+  return _c("div", { on: { click: _vm.onClickTile } }, [
+    _c("img", { attrs: { src: _vm.image, width: "75", height: "50" } })
   ])
 }
 var staticRenderFns = []
@@ -38444,6 +38448,7 @@ var render = function() {
         { staticClass: "row" },
         [
           _c("calcViews", {
+            staticClass: "TextSize",
             attrs: {
               calculatedVal: _vm.outPut,
               opIn: _vm.opInput,
@@ -38461,7 +38466,7 @@ var render = function() {
           _c("div", { staticClass: "row" }, [
             _c(
               "div",
-              { staticClass: "col square" },
+              { staticClass: "col square " },
               [
                 _c("p", [_vm._v("0")]),
                 _vm._v(" "),
@@ -38571,7 +38576,7 @@ var staticRenderFns = [
               "div",
               {
                 key: j,
-                staticClass: "col square",
+                staticClass: "col square TextSize",
                 attrs: { id: _vm.numbersForButtons-- }
               },
               [
@@ -38704,7 +38709,7 @@ var render = function() {
       _c(
         "ul",
         _vm._l(_vm.details, function(detail) {
-          return _c("li", [_vm._v(_vm._s(detail))])
+          return _c("li", { key: detail }, [_vm._v(_vm._s(detail))])
         }),
         0
       ),
@@ -51861,8 +51866,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/jarodwylie/Sites/LarVuExs/HomeSite/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /Users/jarodwylie/Sites/LarVuExs/HomeSite/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /Users/jarodwylie/Sites/HomeSite/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /Users/jarodwylie/Sites/HomeSite/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

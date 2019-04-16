@@ -13,6 +13,5 @@
 
 
 
-Coming Soon
 
 @endsection

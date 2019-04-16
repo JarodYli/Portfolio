@@ -13,7 +13,8 @@
         </div>
 
     <ul>
-        <li v-for="detail in details">{{ detail }}</li>
+        <li v-for="detail in details"
+        :key="detail">{{ detail }}</li>
     </ul>
 
     <div v-for="variant in variants" 

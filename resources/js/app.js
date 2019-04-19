@@ -41,9 +41,15 @@ Vue.component('menuview', require('./components/menuview.vue') .default);
 Vue.component('menuGenerator', require('./components/menuGenerator.vue') .default);
 
 
+// CRUD ToDo App Components
+Vue.component('todo', require('./components/ToDo.vue') .default);
+Vue.component('TaskItem', require('./components/TaskItem.vue') .default);
+
+// Weather App Components
+Vue.component('Weather', require('./components/Weather.vue') .default);
+
+
 Vue.component('testing', require('./components/testing.vue') .default);
-
-
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application

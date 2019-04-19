@@ -48,4 +48,11 @@ class PagesController extends Controller
 
         ]);
     }
+    public function weather()
+    {
+        return view('weather', [
+    
+        ]);
+    }
+
 }

@@ -34,6 +34,12 @@
     <li class="nav-item active">
       <a class="nav-link" href="/calculator">Calculator</a>
     </li>
+    <li class="nav-item active">
+      <a class="nav-link" href="/crud">To-Do App</a>
+    </li>
+    <li class="nav-item active">
+      <a class="nav-link" href="/weather">Weather App</a>
+    </li>
   </ul>
 </nav>
 

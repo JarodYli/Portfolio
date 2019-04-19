@@ -22,3 +22,5 @@ Route::get('/calculator', 'PagesController@calculator');
 Route::get('/restaurant', 'PagesController@restaurant');
 
 Route::get('/crud', 'PagesController@crud');
+
+Route::get('/weather', 'PagesController@weather');

@@ -37,7 +37,7 @@ Vue.component('calcButtons', require('./components/calcButtons.vue') .default);
 Vue.component('calcViews', require('./components/calcViews.vue') .default);
 
 //Restaurant Site Components
-Vue.component('menuview', require('./components/menuview.vue') .default);
+Vue.component('menuview', require('./components/menuView.vue') .default);
 Vue.component('menuGenerator', require('./components/menuGenerator.vue') .default);
 
 
@@ -48,8 +48,10 @@ Vue.component('TaskItem', require('./components/TaskItem.vue') .default);
 // Weather App Components
 Vue.component('Weather', require('./components/Weather.vue') .default);
 
+//Mind Reader
 
-Vue.component('testing', require('./components/testing.vue') .default);
+
+Vue.component('mindread', require('./components/MindRead.vue') .default);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application

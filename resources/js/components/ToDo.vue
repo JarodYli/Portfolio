@@ -1,6 +1,6 @@
 <template>
     <div>
-        <input type="text" placeholder="asdf" v-model="newTask" >
+        <input type="text" placeholder="Add task here" v-model="newTask" >
         <button @click="addTask">Add Task</button>
         <button @click="rm">Remove Item</button>
         <div  v-show="!this.show">
@@ -17,16 +17,17 @@
 
         <div v-show="this.show">
             <h1> Finished Tasks </h1>
+            <button @click="clear">Clear Finished History</button>
         <ul>
             <li v-for="tasks in finishedTasks"
-            :key="tasks">tasks</li>
+            :key="tasks">{{tasks}}</li>
         </ul>
         </div>
         <button @click="flip">Finished Tasks</button><br>
         
 
-       Tasks: {{tasks}} <br>
-       Finished: {{finishedTasks}}
+       <!-- Tasks: {{tasks}} <br>
+       Finished: {{finishedTasks}} -->
     </div>
 </template>
 
@@ -50,7 +51,7 @@
 
             addTask(){
                 var j = this.newTask;
-
+                // 
                 if(!this.tasks.includes(j) && !(j == "")){
                 this.tasks.push(j);
                 this.newTask = '';
@@ -79,14 +80,21 @@
 
             rm(){
             var i = 0;
+            var length;
             for(i = 0; i < this.tasks.length; i++){
                 if(this.finishedTasks.includes(this.tasks[i])){
                     console.log(this.tasks[i]);
                     this.tasks.splice(i,1);
+                    i--;
                 };
-            }                
+            }
+            
 
                 
+            },
+            // method to clear history of finished tasks
+            clear(){
+                this.finishedTasks = [];
             },
 
             flip(){

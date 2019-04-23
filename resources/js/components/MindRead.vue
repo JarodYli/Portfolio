@@ -1,6 +1,6 @@
 <template>
     <div>
-
+        <h1> HOi:MINDREAD</h1>
     </div>
 </template>
 
@@ -10,6 +10,6 @@
     }
 </script>
 
-<style lang="scss" scoped>
+<style >
 
 </style>

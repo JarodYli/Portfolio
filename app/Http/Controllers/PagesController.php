@@ -55,4 +55,11 @@ class PagesController extends Controller
         ]);
     }
 
+    public function MindReader()
+    {
+        return view('MindReader', [
+    
+        ]);
+    }
+
 }

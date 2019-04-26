@@ -7,6 +7,6 @@
     <p>'https://entree-f18.herokuapp.com/v1/menu/'</p>
 
     <div id="app">
-        <menuView></menuView>
+        <menuGenerator></menuGenerator>
     </div>
 @endsection

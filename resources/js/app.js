@@ -38,7 +38,8 @@ Vue.component('calcViews', require('./components/calcViews.vue') .default);
 
 //Restaurant Site Components
 Vue.component('menuview', require('./components/menuView.vue') .default);
-Vue.component('menuGenerator', require('./components/menuGenerator.vue') .default);
+Vue.component('menugenerator', require('./components/menuGenerator.vue') .default);
+Vue.component('menuSections', require('./components/menuSections.vue') .default);
 
 
 // CRUD ToDo App Components

@@ -2,30 +2,16 @@
   <div>
     HODTFHGTH
     <div class="container">
-      <span v-once>
+
       <div class="row">
-
-        
-        <div class="col"
-         v-for="i in sections" 
-         :key="i"
-         :id="index++"
-         >
-        <a>{{index}}</a>
-          <a>{{i}}</a>
-          <div>{{mItems[id]}}</div>
-
-        </div>
-        </div>
-
-        </span>
-
-
-
-        <button @click="makeMenu()"></button>
+        <menuSections
+        v-for="sections in section"
+        :key="sections"
+        :id="sections"></menuSections>
       </div>
-      </div>
-   
+    </div>
+  </div>
+
 </template>
 
 <script>
@@ -36,7 +22,7 @@ export default {
     anitem : "",
       info: null,
       food_str: "HOI",
-      sections: ["Breakfast", "Lunch", "Dinner", "Desert"],
+      section: ["Breakfast", "Lunch", "Dinner", "Desert"],
       mItems:[],
       index:-1,
     

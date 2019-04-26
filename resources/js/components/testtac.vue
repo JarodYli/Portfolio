@@ -1,7 +1,7 @@
 <template>
   <div>
     <h1>Tic Tac Toe</h1>
-    
+
     <div class="container">
       <div class="row" v-for="row in rows" :key="row.id">
         <div class="col-.5 square" v-for="col in cols" :key="col.id">
@@ -10,9 +10,7 @@
       </div>
     </div>
 
-    <TicTacScore :placeValue="placeValue" :xCord="xCord" :yCord="yCord">
-
-    </TicTacScore>
+    <TicTacScore :placeValue="placeValue" :xCord="xCord" :yCord="yCord"></TicTacScore>
 
     <div>
       <button @click="whoGoes">Play the game</button>
@@ -35,16 +33,15 @@ export default {
       rows: [{ id: 0, value: 0 }, { id: 1, value: 0 }, { id: 2, value: 0 }],
       cols: [{ id: 0, value: 0 }, { id: 1, value: 0 }, { id: 2, value: 0 }],
 
-      placeValue:-5,
+      placeValue: -5,
       xCord: 0,
       yCord: 0,
-      turn: 0.5,
+      turn: 0.5
     };
   },
 
   methods: {
     whoGoes() {
-
       var first = prompt("Who goes first?", "X or O");
       if (first == "X") {
         this.turn = 0;
@@ -53,32 +50,24 @@ export default {
       }
     },
 
-    reset() {
-
-    },
+    reset() {},
 
     changeTile(obj) {
-
       // console.log("obj line 61",obj.rowId);
       this.turn = this.turn + 1;
       // console.log(this.turn);
       this.scoreUpdate();
       this.xCord = obj.rowId;
       this.yCord = obj.colId;
-
-     
     },
 
-      scoreUpdate(){
-          if(this.turn%2 == 1){
+    scoreUpdate() {
+      if (this.turn % 2 == 1) {
         this.placeValue = 2;
-        }
-        else if(this.turn%2 == 0){
-          this.placeValue =1;
-        }
-
-      },
-    
+      } else if (this.turn % 2 == 0) {
+        this.placeValue = 1;
+      }
+    }
   }
 };
 </script>
@@ -91,8 +80,8 @@ export default {
   border-style: solid;
 }
 
-.CNTR{
-    text-align:center;
+.CNTR {
+  text-align: center;
 }
 
 .center {

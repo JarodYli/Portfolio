@@ -6,6 +6,10 @@
        
         <link href="css/style.css"  rel="stylesheet">
 
+        <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+
+        <link rel="stylesheet" href="{{ secure_asset('css/style.css') }}">
+
         <title>Laravel</title>
         
         <!-- Fonts -->
@@ -38,41 +42,20 @@
       <a class="nav-link" href="/crud">To-Do App</a>
     </li>
     <li class="nav-item active">
-      <a class="nav-link" href="/weather">Weather App</a>
+      <a class="nav-link" href="/restaurant">Restuarant App</a>
     </li>
+
+    <!-- <li class="nav-item active">
+      <a class="nav-link" href="/weather">Weather App</a>
+    </li> -->
+    <!-- <li class="nav-item active">
+      <a class="nav-link" href="/MindReader">Mind Reader</a>
+    </li> -->
   </ul>
 </nav>
 
 
-    <div class="container">
-    <div class="row">
-        <!-- <div class="col TextSize">
-        <ul>
-            <li>
-                <a href="/">home</a>
-            </li>
-            
-            <li>
-                <a href="/clock">Clock and Countdown</a>
-            </li> 
-            
-            <li>
-                <a href="/ticTacToe">Tic Tac Toe</a>
-            </li> 
-            
-            <li>
-                <a href="/calculator">Calculator</a>
-            </li> 
-        
-            <li>
-                <a href="/restaurant">Restaurant</a>
-            </li> 
-            
-            <li>
-                <a href="/crud">CRUD</a>
-            </li> 
-        </ul>  
-        </div> -->
+
 
         <div class="col">
 

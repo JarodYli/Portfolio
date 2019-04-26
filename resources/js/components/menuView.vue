@@ -13,7 +13,11 @@
     import menuGenerator from "./menuGenerator";
 
     export default {
-        
+     
+        components:{
+            menuGenerator
+        }
+
     }
 </script>
 

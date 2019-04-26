@@ -24,3 +24,5 @@ Route::get('/restaurant', 'PagesController@restaurant');
 Route::get('/crud', 'PagesController@crud');
 
 Route::get('/weather', 'PagesController@weather');
+
+Route::get('/MindReader', 'PagesController@MindReader');

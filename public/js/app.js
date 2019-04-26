@@ -7139,7 +7139,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.square {\n  height: 50px;\n  width: 50px;\n\n  border-color: black;\n  border-style: solid;\n}\n.CNTR{\n    text-align:center;\n}\n.center {\n  display: block;\n  margin-left: auto;\n  margin-right: auto;\n  width: 50%;\n}\n", ""]);
+exports.push([module.i, "\n.square {\r\n  height: 50px;\r\n  width: 50px;\r\n\r\n  border-color: black;\r\n  border-style: solid;\n}\n.CNTR{\r\n    text-align:center;\n}\n.center {\r\n  display: block;\r\n  margin-left: auto;\r\n  margin-right: auto;\r\n  width: 50%;\n}\r\n", ""]);
 
 // exports
 

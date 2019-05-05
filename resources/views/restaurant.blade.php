@@ -2,11 +2,21 @@
 
 @section('content')
 
-    <h1>Restaurant</h1>
 
-    <p>'https://entree-f18.herokuapp.com/v1/menu/'</p>
+    <div class="container">
+
+            <img src='/images/spiceHeader.jpg'>
+
+    </div>
 
     <div id="app">
         <menuGenerator></menuGenerator>
     </div>
+
+<style>    
+.container {
+  position: relative;
+  width: 100%;
+}
+</style>
 @endsection

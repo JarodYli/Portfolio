@@ -17,7 +17,6 @@
 
         props: {
             item:String,
-            checked:Boolean,
         },
 
         methods: {

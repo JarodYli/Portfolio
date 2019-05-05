@@ -2418,46 +2418,6 @@ __webpack_require__.r(__webpack_exports__);
       section: ["Breakfast", "Lunch", "Dinner", "Desert"],
       mItems: []
     };
-  },
-  //   mounted(){
-  //       var self = this;
-  //       axios
-  //           .get('https://cors-anywhere.herokuapp.com/' + 'https://entree-f18.herokuapp.com/v1/menu/4')
-  //           .then(response => (this.info = response))
-  //           .then(function () {
-  //               var anitem = "";
-  //                 for (var item in self.info.data.menu_items) {
-  //                     console.log(item);
-  //                     anitem += self.info.data.menu_items[item].description + " ";
-  //                 }
-  //                 self.food_str = anitem;
-  //           })
-  //   },
-  methods: {
-    makeMenu: function makeMenu() {
-      var _this = this;
-
-      var self = this;
-      axios.get('https://cors-anywhere.herokuapp.com/' + 'https://entree-f18.herokuapp.com/v1/menu/6').then(function (response) {
-        return _this.info = response;
-      }).then(function () {
-        var anitem = "";
-
-        for (var item in self.info.data.menu_items) {
-          console.log(item);
-          anitem += self.info.data.menu_items[item].description + " ";
-        } // console.log("ANITme:", anitem);
-
-
-        self.food_str = anitem;
-        self.food();
-      });
-    },
-    food: function food() {
-      this.mItems.push(this.food_str);
-      console.log(this.mItems[0]);
-      return this.food_str;
-    }
   }
 });
 
@@ -39038,7 +38998,6 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _vm._v("\n  HODTFHGTH\n  "),
     _c("div", { staticClass: "container" }, [
       _c(
         "div",

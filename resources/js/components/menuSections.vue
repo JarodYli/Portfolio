@@ -61,8 +61,6 @@
 
         food() {
             this.makeMenu();
-
-
             this.mItems.push(this.food_str);
             console.log(this.mItems[0]);
             return this.food_str;

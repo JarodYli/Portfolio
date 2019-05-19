@@ -10,7 +10,7 @@
 
         <link rel="stylesheet" href="{{ secure_asset('css/style.css') }}">
 
-        <title>Laravel</title>
+        <title>Portfolio</title>
         
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">

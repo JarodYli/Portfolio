@@ -3,12 +3,12 @@
 
     <div class="container">
 
-      <div class="row">
+      <!-- <div class="row">
         <menuSections
         v-for="sections in section"
         :key="sections"
         :id="sections"></menuSections>
-      </div>
+      </div> -->
     </div>
   </div>
 
@@ -16,17 +16,28 @@
 
 <script>
 export default {
-  name: "menuGenerator",
+
   data() {
     return {
     anitem : "",
-      info: null,
+      info: "",
 
       section: ["Breakfast", "Lunch", "Dinner", "Desert"],
       mItems:[],
 
     
     };
+  },
+
+  mounted(){
+    console.log("this is the response:", this.info);
+    axios
+                .get('https://cors-anywhere.herokuapp.com/' + 'https://entree-f18.herokuapp.com/v1/menu/1')
+                
+                .then(response => (this.info = response));
+
+
+
   },
 };
 </script>

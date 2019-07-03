@@ -47,7 +47,7 @@
                     var anitem = "";
                         for (var item in self.info.data.menu_items) {
 
-                            // console.log(item);
+
                             anitem += self.info.data.menu_items[item].description + " ";
 
                         }
